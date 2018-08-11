@@ -15,10 +15,10 @@ const JsonParser = bodyParser.json();
 
 const app = express();
 
-const port = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.listen(port, () => {
-    console.log(`Server works in port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server works in PORT ${PORT}`);
 });
 
 app.use((cors()));
