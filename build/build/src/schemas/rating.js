@@ -8,22 +8,24 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
 
 var Scheme = _mongoose2.default.Schema;
 
 var ratingSchema = new Scheme({
     'name': {
-        type: String,
+        type: Scheme.Types.ObjectId,
         required: true
     },
 
     'description': {
-        type: String,
+        type: Scheme.Types.ObjectId,
         required: true
     },
     'age': {
-        type: String,
+        type: Number,
         required: true
     }
 

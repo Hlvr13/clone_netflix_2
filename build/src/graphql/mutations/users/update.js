@@ -10,18 +10,18 @@ var _graphql = require('graphql');
 
 var graphql = _interopRequireWildcard(_graphql);
 
-var _genre = require('../../../schemas/genre');
+var _user = require('../../../schemas/user');
 
-var _genre2 = _interopRequireDefault(_genre);
+var _user2 = _interopRequireDefault(_user);
 
-var _genre3 = require('../../types/genre');
+var _user3 = require('../../types/user');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 exports.default = {
-    type: _genre3.GenreType,
+    type: _user3.UserType,
     args: {
         id: {
             name: 'ID',
@@ -29,14 +29,14 @@ exports.default = {
         },
         data: {
             name: 'data',
-            type: new graphql.GraphQLNonNull(_genre3.GenreInputType)
+            type: new graphql.GraphQLNonNull(_user3.UserInputType)
         }
     },
     resolve: function resolve(root, params) {
-        return _genre2.default.findByIdAndUpdate(params.id, { $set: _extends({}, params.data) }).then(function (genre) {
-            return _genre2.default.findById(genre.id).exec();
+        return _user2.default.findByIdAndUpdate(params.id, { $set: _extends({}, params.data) }).then(function (user) {
+            return _user2.default.findById(user.id).exec();
         }).catch(function (err) {
-            return new Error('Could not update Genre Data', err);
+            return new Error('Could not update User Data', err);
         });
     }
 };

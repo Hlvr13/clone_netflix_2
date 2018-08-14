@@ -17,6 +17,6 @@ export default{
     resolve(root,params){
         return Genre.findByIdAndUpdate(params.id,{$set:{...params.data}})
                         .then((genre)=> Genre.findById(genre.id).exec())
-                        .catch((err)=> new Error('Could not update Genre data', err))
+                        .catch((err)=> new Error('Could not update Genre Data', err))
     }
 }

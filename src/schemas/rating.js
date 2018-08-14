@@ -4,16 +4,16 @@ const Scheme = mongoose.Schema;
 
 const ratingSchema = new Scheme({
     'name':{
-        type: Scheme.Types.ObjectId,
+        type: String,
         required: true
     },
 
     'description':{
-        type : Scheme.Types.ObjectId,
+        type : String,
         required: true
     },
     'age':{
-        type: Number,
+        type: String,
         required: true
     }
 
