@@ -34,7 +34,7 @@ export const MovieType = new graphql.GraphQLObjectType({
             type: graphql.GraphQLString
         },
         rank: {
-            type: graphql.GraphQLString
+            type: graphql.GraphQLList(graphql.GraphQLFloat)
         },
         length: {
             type: graphql.GraphQLString
@@ -74,9 +74,6 @@ export const MovieInputType = new graphql.GraphQLInputObjectType({
         year: {
             type: graphql.GraphQLString
         },
-        rank: {
-            type: graphql.GraphQLString
-        },
         length: {
             type: graphql.GraphQLString
         },
@@ -85,6 +82,16 @@ export const MovieInputType = new graphql.GraphQLInputObjectType({
         },
         url: {
             type: graphql.GraphQLString
+        }
+    })
+})
+
+export const RankMovieType = new graphql.GraphQLInputObjectType({
+    name: "addRank",
+    description: "Add rank to movie",
+    fields:()=>({
+        rank:{
+            type:graphql.GraphQLFloat
         }
     })
 })
