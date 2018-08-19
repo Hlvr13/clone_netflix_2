@@ -29,7 +29,7 @@ const movieScheme = new Scheme({
     },
     'rank':{
         type: [Number],
-        required: true
+        required: false
     },
     'length':{
         type: String,
