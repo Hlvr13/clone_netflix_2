@@ -56,7 +56,7 @@ exports.default = {
         return _genre2.default.findByIdAndUpdate(params.id, { $set: _extends({}, params.data) }).then(function (genre) {
             return _genre2.default.findById(genre.id).exec();
         }).catch(function (err) {
-            return new Error('Could not update Genre Data', err);
+            return new Error('Could not update Genre data', err);
         });
     }
 };

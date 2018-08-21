@@ -1,4 +1,3 @@
-//import functions from 'firebase-functions';
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -28,13 +27,12 @@ mongoose.connect('mongodb://lvr:lvr123@ds117469.mlab.com:17469/clone_netflix2018
 const dataBase = mongoose.connection;
 
 dataBase.on('error', () => {
-    console.log("Failled to connect to MongooseDB.")
+    console.log("Failed to connect to MongooseDB.")
 }).once('open', () => {
     console.log('Connected to MongooseDB.')
 });
 
 app.get('/checkServer', (req,res) => {
-    //response.set('Cache-Control','public','max-age=300','s-maxage=600');
     res.send('Server working.');
 })
 
@@ -138,4 +136,3 @@ app.use('/graphql', graphQLHTTP((req,res) => ({
     }
 })))
 
-//exports.app = functions.https.onRequest(app);

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.RankMovieType = exports.MovieInputType = exports.MovieType = undefined;
+exports.MovieInputType = exports.MovieType = undefined;
 
 var _graphql = require('graphql');
 
@@ -21,9 +21,21 @@ var _rating2 = require('../../schemas/rating');
 
 var _rating3 = _interopRequireDefault(_rating2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) {
+    if (obj && obj.__esModule) {
+        return obj;
+    } else {
+        var newObj = {};if (obj != null) {
+            for (var key in obj) {
+                if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+            }
+        }newObj.default = obj;return newObj;
+    }
+}
 
 var MovieType = exports.MovieType = new graphql.GraphQLObjectType({
     name: 'Movies',
@@ -57,7 +69,7 @@ var MovieType = exports.MovieType = new graphql.GraphQLObjectType({
                 type: graphql.GraphQLString
             },
             rank: {
-                type: graphql.GraphQLList(graphql.GraphQLFloat)
+                type: graphql.GraphQLString
             },
             length: {
                 type: graphql.GraphQLString
@@ -100,6 +112,9 @@ var MovieInputType = exports.MovieInputType = new graphql.GraphQLInputObjectType
             year: {
                 type: graphql.GraphQLString
             },
+            rank: {
+                type: graphql.GraphQLString
+            },
             length: {
                 type: graphql.GraphQLString
             },
@@ -108,18 +123,6 @@ var MovieInputType = exports.MovieInputType = new graphql.GraphQLInputObjectType
             },
             url: {
                 type: graphql.GraphQLString
-            }
-        };
-    }
-});
-
-var RankMovieType = exports.RankMovieType = new graphql.GraphQLInputObjectType({
-    name: "addRank",
-    description: "Add rank to movie",
-    fields: function fields() {
-        return {
-            rank: {
-                type: graphql.GraphQLFloat
             }
         };
     }

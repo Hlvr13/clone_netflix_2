@@ -14,21 +14,15 @@ function _interopRequireDefault(obj) {
 
 var Scheme = _mongoose2.default.Schema;
 
-var ratingSchema = new Scheme({
+var genreScheme = new Scheme({
     'name': {
         type: String,
         required: true
     },
-
     'description': {
         type: String,
         required: true
-    },
-    'age': {
-        type: String,
-        required: true
     }
+}, { 'collections': 'genres', timestamps: true });
 
-}, { 'collection': 'ratings', timestamps: true });
-
-exports.default = _mongoose2.default.model('ratings', ratingSchema);
+exports.default = _mongoose2.default.model('genres', genreScheme);

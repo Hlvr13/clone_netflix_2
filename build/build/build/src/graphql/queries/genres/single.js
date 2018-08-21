@@ -4,16 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-                target[key] = source[key];
-            }
-        }
-    }return target;
-};
-
 var _graphql = require('graphql');
 
 var graphql = _interopRequireWildcard(_graphql);
@@ -40,23 +30,18 @@ function _interopRequireWildcard(obj) {
     }
 }
 
-exports.default = {
+var querySingleGenre = {
     type: _genre3.GenreType,
     args: {
         id: {
             name: 'ID',
-            type: new graphql.GraphQLNonNull(graphql.GraphQLID)
-        },
-        data: {
-            name: 'data',
-            type: new graphql.GraphQLNonNull(_genre3.GenreInputType)
+            type: graphql.GraphQLNonNull(graphql.GraphQLID)
         }
     },
     resolve: function resolve(root, params) {
-        return _genre2.default.findByIdAndUpdate(params.id, { $set: _extends({}, params.data) }).then(function (genre) {
-            return _genre2.default.findById(genre.id).exec();
-        }).catch(function (err) {
-            return new Error('Could not update Genre Data', err);
-        });
+        var genre = _genre2.default.findById(params.id).exec();
+        return genre;
     }
 };
+
+exports.default = querySingleGenre;

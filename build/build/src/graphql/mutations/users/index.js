@@ -16,15 +16,12 @@ var _update = require('./update');
 
 var _update2 = _interopRequireDefault(_update);
 
-var _addRank = require('./addRank');
-
-var _addRank2 = _interopRequireDefault(_addRank);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
 
 exports.default = {
-    addMovie: _add2.default,
-    deleteMovie: _delete2.default,
-    updateMovie: _update2.default,
-    addRank: _addRank2.default
+    addUser: _add2.default,
+    deleteUser: _delete2.default,
+    updateUser: _update2.default
 };

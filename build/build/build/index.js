@@ -40,9 +40,12 @@ var _cors = require('cors');
 
 var _cors2 = _interopRequireDefault(_cors);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
 
-var JsonParser = _bodyParser2.default.json();
+var JsonParser = _bodyParser2.default.json(); //import functions from 'firebase-functions';
+
 
 var app = (0, _express2.default)();
 
@@ -59,12 +62,13 @@ _mongoose2.default.connect('mongodb://lvr:lvr123@ds117469.mlab.com:17469/clone_n
 var dataBase = _mongoose2.default.connection;
 
 dataBase.on('error', function () {
-    console.log("Failed to connect to MongooseDB.");
+    console.log("Failled to connect to MongooseDB.");
 }).once('open', function () {
     console.log('Connected to MongooseDB.');
 });
 
 app.get('/checkServer', function (req, res) {
+    //response.set('Cache-Control','public','max-age=300','s-maxage=600');
     res.send('Server working.');
 });
 
@@ -163,3 +167,5 @@ app.use('/graphql', (0, _expressGraphql2.default)(function (req, res) {
         }
     };
 }));
+
+//exports.app = functions.https.onRequest(app);

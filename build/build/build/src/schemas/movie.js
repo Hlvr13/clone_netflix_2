@@ -8,7 +8,9 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
 
 var Scheme = _mongoose2.default.Schema;
 
@@ -38,8 +40,8 @@ var movieScheme = new Scheme({
         required: true
     },
     'rank': {
-        type: [Number],
-        required: false
+        type: String,
+        required: true
     },
     'length': {
         type: String,
